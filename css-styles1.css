@@ -1,0 +1,335 @@
+
+* {
+  box-sizing: border-box;
+}
+
+/* ---------- Background ---------- */
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', 'Jua', 'Nanum Pen Script', sans-serif;
+  background: linear-gradient(
+    to bottom,
+    #cfe9ff 0%,
+    #9fc7f3 40%,
+    #4b6cb7 100%
+  );
+  color: #1e2a44;
+}
+
+/* subtle floating clouds */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.6) 0 60px, transparent 61px),
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.5) 0 80px, transparent 81px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,0.4) 0 70px, transparent 71px);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- Banner ---------- */
+.top-banner img {
+  width: 100%;
+  display: block;
+}
+
+/* ---------- Layout ---------- */
+.page-shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: 1200px;
+  margin: 24px auto;
+  background: #f7fbff;
+  border: 4px solid #7aa7d9;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(20,40,90,0.25);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 230px;
+  padding: 12px;
+  background: linear-gradient(#e8f4ff, #cfe2ff);
+  border-right: 3px dashed #7aa7d9;
+}
+
+.profile-card {
+  background: #ffffff;
+  border: 2px solid #9ec1e6;
+  border-radius: 14px;
+  padding: 10px;
+  font-size: 0.85rem;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #355c9a;
+}
+
+.online-dot {
+  width: 10px;
+  height: 10px;
+  background: #3cff7a;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(60,255,122,0.8);
+}
+
+.profile-photo img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #b5d1f0;
+  margin: 6px 0;
+}
+
+.status {
+  font-size: 0.8rem;
+  margin: 6px 0;
+}
+
+.counter {
+  font-size: 0.75rem;
+  color: #4a6fa5;
+}
+
+/* ---------- Mini Nav ---------- */
+.mini-nav {
+  margin-top: 10px;
+}
+
+.mini-nav a {
+  display: block;
+  margin-bottom: 6px;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #2e4f88;
+  background: linear-gradient(#ffffff, #e5f1ff);
+  border: 1px solid #9ec1e6;
+  border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.mini-nav a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(50,100,180,0.3);
+}
+
+.mini-nav a.active {
+  background: linear-gradient(#a7c9ff, #7aa7d9);
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* ---------- Content ---------- */
+.content {
+  flex: 1;
+  padding: 14px;
+}
+
+.window {
+  position: relative;
+  background: #ffffff;
+  border: 3px solid #7aa7d9;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* notebook title bar */
+.window-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(#a7c9ff, #7aa7d9);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.window-controls span {
+  margin-left: 6px;
+  font-size: 0.75rem;
+}
+
+/* ---------- Notebook Body ---------- */
+.notebook-body {
+  display: flex;
+  padding: 12px;
+}
+
+.page {
+  flex: 1;
+  padding: 10px;
+  font-size: 0.85rem;
+}
+
+.left-page {
+  border-right: 2px dashed #9ec1e6;
+}
+
+/* ---------- Typography ---------- */
+.y2k-title {
+  font-family: 'Jua', sans-serif;
+  font-size: 1.4rem;
+  color: #355c9a;
+}
+
+.intro {
+  line-height: 1.6;
+}
+
+.prompts {
+  padding-left: 18px;
+}
+
+.prompts li {
+  margin-bottom: 6px;
+}
+
+/* sticky memo */
+.sticky-note {
+  margin-top: 10px;
+  background: #e8f4ff;
+  border: 2px dashed #9ec1e6;
+  padding: 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+/* ---------- Image ---------- */
+.media-frame img {
+  width: 100%;
+  border-radius: 14px;
+  border: 2px solid #9ec1e6;
+}
+
+figcaption {
+  font-size: 0.7rem;
+  color: #5a7fb8;
+}
+
+.page-divider {
+  margin: 14px 0;
+  border: none;
+  border-top: 1px dashed #9ec1e6;
+}
+
+/* ---------- Form ---------- */
+.form-row {
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #9ec1e6;
+  font-family: inherit;
+}
+
+/* buttons */
+.form-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.btn {
+  flex: 1;
+  padding: 6px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: linear-gradient(#a7c9ff, #7aa7d9);
+  border: 1px solid #6a96c9;
+  color: white;
+}
+
+.btn.ghost {
+  background: #ffffff;
+  border: 1px dashed #9ec1e6;
+  color: #355c9a;
+}
+
+/* ---------- Guestbook Bubble ---------- */
+.comment-item {
+  margin-top: 10px;
+}
+
+.bubble {
+  position: relative;
+  background: #e8f4ff;
+  border: 2px solid #9ec1e6;
+  border-radius: 18px;
+  padding: 8px;
+}
+
+/* bubble tail */
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  bottom: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #e8f4ff;
+}
+
+.bubble-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: #355c9a;
+}
+
+.bubble-body {
+  font-size: 0.8rem;
+}
+
+/* ---------- Binder Rings ---------- */
+.binder-rings {
+  position: absolute;
+  right: -18px;
+  top: 70px;
+}
+
+.binder-rings span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #355c9a;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  background: #f7fbff;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  margin: 14px 0;
+  font-size: 0.75rem;
+  color: #eaf2ff;
+}
+
+.ribbon {
+  display: inline-block;
+  background: rgba(20,40,90,0.4);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+
+

@@ -1,0 +1,254 @@
+/* profile */
+:root {
+  --pink-1: #ffe8f3;
+  --pink-2: #ffc9e5;
+  --pink-3: #ff9fd3;
+  --peach:  #ffd8c2;
+  --mint:   #d9fff3;
+  --yellow: #fff0b8;
+  --line:   #f3a7d1;
+  --ink:    #3a2f37;
+  --bg:     #fffafc;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg), var(--pink-1)) fixed;
+  font-family: "Noto Sans KR", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+/* top */
+.top-banner {
+  background: var(--pink-2);
+  border-bottom: 2px solid var(--line);
+  box-shadow: 0 4px 0 #f7c3de;
+
+  line-height: 0;   
+  overflow: hidden; 
+}
+
+.top-banner img {
+  width: 100%;
+  height: auto;
+  transform: scaleY(0.8);    
+  transform-origin: top;
+  image-rendering: pixelated;
+  display: block;
+}
+
+
+
+/* layout*/
+.page-shell {
+  max-width: 1100px;
+  margin: 22px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+}
+
+/*side*/
+.profile-card {
+  background: var(--pink-1);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 4px 0 #f7c3de;
+  overflow: hidden;
+}
+
+.profile-header {
+  background: var(--pink-2);
+  padding: 8px 12px;
+  font-family: "Jua", sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.online-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #36d399;
+}
+
+.profile-photo {
+  height: 180px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ffd0ea, #fff5f9);
+}
+
+.profile-photo img {
+  max-width: 70%;
+  border-radius: 12px;
+}
+
+.profile-meta {
+  padding: 12px;
+  font-size: 14px;
+}
+
+.counter {
+  margin-top: 6px;
+  display: inline-block;
+  padding: 6px 10px;
+  background: #fff;
+  border: 2px dashed var(--line);
+  border-radius: 10px;
+}
+
+/*  아이콘 */
+.dotori-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  font-weight: 700;
+}
+.dotori-bar img {
+  width: 24px;
+  image-rendering: pixelated;
+}
+
+
+.mini-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding: 10px;
+}
+.mini-nav a {
+  text-decoration: none;
+  text-align: center;
+  padding: 8px;
+  background: #fff;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  font-size: 14px;
+}
+.mini-nav a:hover,
+.mini-nav a.active {
+  background: var(--pink-2);
+}
+
+/* wmain*/
+.window {
+  background: #fff;
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 6px 0 #ffdff0;
+  overflow: hidden;
+}
+
+.window-title {
+  background: linear-gradient(90deg, var(--peach), var(--pink-2));
+  padding: 8px 12px;
+  font-family: "VT323", monospace;
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.window-body {
+  padding: 18px;
+}
+
+.y2k-title {
+  font-family: "Jua", sans-serif;
+  font-size: 28px;
+  color: #e645a7;
+}
+
+.inline-gif img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 10px auto;
+}
+
+.intro {
+  background: var(--mint);
+  padding: 12px 14px;
+  border: 2px dashed #89dbc4;
+  border-radius: 14px;
+  line-height: 1.7;
+
+  color: #4aa3c7;      
+  font-weight: 500;
+}
+
+
+.bullets li {
+  margin: 6px 0;
+  list-style: "✿  ";
+  color: #2f7fa3;      
+  font-weight: 500;
+   transition: all 0.3s ease;
+  position: relative;
+}
+
+.bullets li::after {
+  content: "✨";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  opacity: 0;
+  transform: translateX(0) translateY(-50%) scale(0);
+  transition: all 0.3s ease;
+}
+
+.bullets li:hover::after {
+  opacity: 1;
+  transform: translateX(6px) translateY(-50%) scale(1);
+}
+
+
+/* start */
+.start-next {
+  margin-top: 18px;
+  text-align: right;
+}
+.start-link {
+  font-family: "VT323", monospace;
+  font-size: 22px;
+  color: #ff4fa3;
+  text-decoration: none;
+  animation: sparkle 1.6s infinite alternate;
+}
+
+@keyframes sparkle {
+  from { text-shadow: 0 0 4px #ffd1ea; }
+  to   { text-shadow: 0 0 12px #ff9fd3; }
+}
+
+/* footer*/
+.footer {
+  text-align: center;
+  margin: 20px 0;
+}
+.ribbon {
+  background: var(--pink-3);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 16px;
+}
+
+/* background */
+#p5-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* bottom*/
+@media (max-width: 860px) {
+  .page-shell {
+    grid-template-columns: 1fr;
+  }
+}

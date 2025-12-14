@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiniHome :: Reflection & Guestbook</title>
+
+  <!-- Y2K/Cyworld-style fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link href="css-styles1.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg-wallpaper">
+  <!-- Top -->
+  <header class="top-banner" aria-label="Top banner"> 
+       
+  <img src="../images/simple-icon.png" alt="simple-icon"
+       style="width:20%; height:auto; display:inline-block;">
+       
+  <img src="../images/y2k-sim.png" alt="y2k-imge"
+       style="width:20%; height:auto; display:inline-block;">
+</header>
+
+
+</header>
+															  
+																  
+
+  <!-- Main -->
+  <div class="page-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Profile panel">
+      <div class="profile-card">
+        <div class="profile-header">
+          <span class="home-label">MiniHome</span>
+          <span class="online-dot" title="online"></span>
+        </div>
+
+        <div class="profile-photo">
+          <img src="assets/avatar.png" alt="Profile Image" onerror="this.style.display='none';">
+          <div class="status">Status: <span>“What is your ideal look is today-What made you change?”</span></div>
+          <div class="counter">Today's Visitors: <span id="visit-count">128</span></div>
+        </div>
+
+        <nav class="mini-nav" aria-label="Minihome navigation">
+          <a href="../index.html">Home</a>
+          <a href="../beautycam-pg2/beauty-cam-pg2.html">Filter Lab</a>
+          <a href="reflection.html">Avatar Lab</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="content" aria-label="Reflection & Comments">
+      <section class="window notebook">
+        <div class="window-title">
+          <span>Beauty Identity Lab :: Reflection & Guestbook</span>
+          <div class="window-controls"><span>＿</span><span>□</span><span>×</span></div>
+        </div>
+
+        <div class="notebook-body">
+          <!-- Left page -->
+          <article class="page left-page">
+            <h1 class="y2k-title">Reflection</h1>
+            <p class="intro">
+              This space lets you explore the gap between online beauty standards and your own choices. 
+              After experiencing filters, recommendation algorithms, and popular tags that shape the "ideal" look/style,
+              use the prompts below to distinguish <em>what you truly want</em> versus <em>what you were led to want</em>.
+            </p>
+
+            <ul class="prompts">
+              <li>Which choices immediately felt "beautiful/cool"? Where did this standard come from?</li>
+              <li>Which filter/avatar elements felt truly <em>me</em>?</li>
+              <li>When comparing across regions/cultures, which features did I prefer, and how were they reinforced or changed?</li>
+              <li>How did recommendation systems influence my choices?</li>
+              <li>After seeing the final result, which is closer: "being myself" or "universal beauty"?</li>
+            </ul>
+
+            <div class="sticky-note">
+              ✿ Note: “The ideal look is not fixed, but a <strong>flow</strong> shaped by platforms, culture, and time.”
+            </div>
+          </article>
+
+          <!-- Right -->
+          <article class="page right-page">
+            <h2 class="section-title">Image Section</h2>
+            <figure class="media-frame">
+              <img src="../images/eye-close-up.jpg" alt="Reflection image">
+              <figcaption>Upload an image representing your choices/standards or an experiment snapshot.</figcaption>
+            </figure>
+
+            <hr class="page-divider">
+
+            <!-- Guestbook -->
+            <h2 class="section-title">Guestbook</h2>
+            <p class="small-note">
+              Comments are saved in this browser using <strong>localStorage</strong>.
+            </p>
+
+            <form id="comment-form" class="comment-form" autocomplete="on" aria-label="Comment Form">
+              <div class="form-row">
+                <label for="name">Nickname</label>
+                <input type="text" id="name" name="name" maxlength="24" placeholder="e.g., peach_soda" />
+              </div>
+
+              <div class="form-row">
+                <label for="mood">Sticker</label>
+                <select id="mood" name="mood">
+                  <option value="✿">✿ Flower</option>
+                  <option value="★">★ Star</option>
+                  <option value="♡">♡ Heart</option>
+                  <option value="⚡">⚡ Sparkle</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" maxlength="600" placeholder="Share your thoughts/feedback/experiences"></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn primary">Submit</button>
+                <button type="button" id="clear-all" class="btn ghost">Clear all (this browser)</button>
+              </div>
+            </form>
+
+            <div id="comment-list" class="comment-list" aria-live="polite"></div>
+          </article>
+        </div>
+
+        <!-- Binder rings -->
+        <div class="binder-rings" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+	 <div class="start-next">
+            <a href="../index.html" class="start-link">
+              ✨ Try Another Round! →
+            </a>
+          </div>
+    <div class="ribbon">© 2025 Beauty Identity Lab — Guestbook by Youna Oh</div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // Visitor 
+    const vc = document.getElementById('visit-count');
+    if (vc) vc.textContent = Math.floor(120 + Math.random() * 60);
+
+    // LocalStorage 
+    const STORAGE_KEY = 'beautyLabComments';
+    const listEl = document.getElementById('comment-list');
+    const formEl = document.getElementById('comment-form');
+    const clearBtn = document.getElementById('clear-all');
+
+    function loadComments() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    function saveComments(arr) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;')
+        .replace(/\n/g, '<br>');
+    }
+
+    function renderComments() {
+      const comments = loadComments();
+      listEl.innerHTML = '';
+      if (comments.length === 0) {
+        listEl.innerHTML = '<p class="empty">No comments yet. Be the first to leave one!</p>';
+        return;
+      }
+      comments.sort((a,b) => b.time - a.time)
+        .forEach(c => {
+          const item = document.createElement('div');
+          item.className = 'comment-item';
+          item.innerHTML = `
+            <div class="bubble">
+              <div class="bubble-head">
+                <span class="sticker">${c.mood || '✿'}</span>
+                <span class="name">${c.name || 'Anonymous'}</span>
+                <span class="time">${new Date(c.time).toLocaleString()}</span>
+              </div>
+              <div class="bubble-body">${escapeHtml(c.message || '')}</div>
+            </div>
+          `;
+          listEl.appendChild(item);
+        });
+    }
+
+    formEl.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const mood = document.getElementById('mood').value;
+      const message = document.getElementById('message').value.trim();
+      if (!message) return alert('Please enter a message.');
+      const comments = loadComments();
+      comments.push({ name, mood, message, time: Date.now() });
+      saveComments(comments);
+      formEl.reset();
+      renderComments();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      if(confirm('Delete all guestbook entries in this browser?')) {
+        localStorage.removeItem(STORAGE_KEY);
+        renderComments();
+      }
+    });
+
+    renderComments();
+  </script>
+</body>
+</html>
+

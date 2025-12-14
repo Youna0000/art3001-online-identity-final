@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BEAUTY IDENTITY LAB</title>
+  
+  <!-- p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.dom.min.js"></script>
+  <!-- optional: face tracker -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/clmtrackr@1.1.2/build/clmtrackr.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/clmtrackr@1.1.2/models/model_pca_20_svm.js"></script> -->
+
+  <style>
+    /* 전체 body 스타일 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Baloo 2', cursive;
+      background: #F4C2C2;
+      color: #ff1493;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    /* a 기본 스타일 */
+    a { 
+      color: #ff1493; 
+      text-decoration: none; 
+    }
+
+    /* Start 버튼 컨테이너 */
+    .start-next {
+      margin-top: auto;         /* 화면 하단으로 밀기 */
+      margin-bottom: 30px;      /* 아래 여백 */
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Start 버튼 스타일 */
+    .start-next .start-link {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #ff1493;
+      color: white;
+      border-radius: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .start-next .start-link:hover {
+      background-color: #ff5aa3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- p5.js canvas는 sketch.js에서 자동 생성 -->
+  
+  <!-- 하단 Start 버튼 -->
+  <div class="start-next">
+    <a href="../avatar-design-pg3/avatar-design.html" class="start-link">
+      ✨ Let’s go! Dress-up your own Avatar →
+    </a>
+  </div>
+
+  <!-- sketch.js 연결 -->
+  <script src="sketch.js"></script>
+</body>
+</html>
+
+

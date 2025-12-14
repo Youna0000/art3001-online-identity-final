@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minihome :: Beauty Identity Lab</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jua&family=VT323&family=Noto+Sans+KR:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ✅ Main CSS (GitHub-safe path) -->
+  <!-- 나중에 GitHub 올릴 때 그대로 유지 -->
+  <link href="css%3Astyles.css" rel="stylesheet" type="text/css">
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+</head>
+
+<body>
+
+  <!-- p5 background -->
+  <div id="p5-bg"></div>
+
+  <!--  GIF #1 -->
+  <header class="top-banner">
+    <img src="gifs/Online-identity-gif-1 (1).gif" alt="Online Identity Beauty Lab banner">
+  </header>
+
+  <div class="page-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile-card">
+
+        <div class="profile-header">
+          <span class="home-label">Minihome</span>
+          <span class="online-dot"></span>
+        </div>
+
+        <div class="profile-photo"> <a href="images/y2k.png"><img src="images/simple-icon.png" alt="Profile avatar" width="500" height="200"></a>
+        </div>
+
+        <div class="profile-meta">
+          <div class="status">
+            Status: <span>“Who decided today’s beauty ideal?”</span>
+          </div>
+          <div class="region">Space: ✿ global / online</div>
+          <div class="counter">
+            Today’s visitors: <span id="visit-count">128</span>
+          </div>
+        </div>
+
+        <!-- Dotori -->
+        <div class="dotori-bar">
+          <img src="images/Tangerine-icon.png" alt="Tangerine currency">
+          <span class="dotori-count" id="dotori-count">10</span>
+          <span class="dotori-label">tangerines</span>
+        </div>
+
+        <nav class="mini-nav">
+          <a href="#" class="active">#Home</a>
+          <a href="beautycam-pg2/beauty-cam-pg2.html">#Filter Lab</a>
+          <a href="avatar-design-pg3/avatar-design.html">#Avatar Lab</a>
+          <a href="Reflection-pg4/reflection.html">#Reflection </a>
+          <a href="#">#Guestbook</a>
+        </nav>
+
+      </div>
+    </aside>
+
+    <!--  content -->
+    <main class="content">
+      <section class="window">
+
+        <div class="window-title">
+          <span>Beauty Identity Lab :: Introduction</span>
+          <div class="window-controls">
+          <span>  ＿ </span><span> □ </span><span> × </span>
+          </div>
+        </div>
+
+        <div class="window-body">
+
+          <h1 class="y2k-title">Online Identity & Beauty Ideals</h1>
+
+          <!--  GIF #2  -->
+          <div class="inline-gif"> <a href="gifs/online identity-gif2.gif"><img src="gifs/online identity-gif2.gif" alt="Beauty identity animation"></a>
+          </div>
+
+          <p class="intro">
+            This project explores how platforms, algorithms, and influencer culture
+            construct and circulate ideas of the “ideal” face and body.
+            Through filters, avatars, and region-based beauty standards,
+            users are invited to question their choices and ask:
+            <em>Is this what I want — or what the system wants me to want?</em>
+          </p>
+
+          <ul class="bullets">
+            <li>Filters: skin smoothing, reshaping, color correction</li>
+            <li>Avatars: constructing personas through modular parts</li>
+            <li>Regions: comparing beauty ideals across cultures</li>
+            <li>Reflection: tracking aesthetic consumption</li>
+          </ul>
+
+          
+          <div class="start-next">
+            <a href="beautycam-pg2/beauty-cam-pg2.html" class="start-link">
+              ✨ Let’s start: beauty filters cam →
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="ribbon">
+      © 2025 Beauty Identity Lab created by Youna Oh — Minihome Style
+    </div>
+  </footer>
+
+  <!-- p5 sketch -->
+  <script src="js/sketch.js"></script>
+
+  <!-- Utility -->
+  <script>
+    document.getElementById("visit-count").textContent =
+      Math.floor(120 + Math.random() * 60);
+
+    // 🍊 //
+    let count = 10;
+    const el = document.getElementById("dotori-count");
+    setInterval(() => {
+      if (count > 0) {
+        count--;
+        el.textContent = count;
+      }
+    }, 4000);
+  </script>
+
+</body>
+</html>
+
